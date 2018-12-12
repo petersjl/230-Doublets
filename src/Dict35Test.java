@@ -17,7 +17,7 @@ public class Dict35Test {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		testGraph = new Links("../DoubletsData/english.cleaned.all.35.txt");
+		testGraph = new Links("english.cleaned.all.35.txt");
 	}
 
 	@Before

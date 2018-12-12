@@ -25,7 +25,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidatesTinyThreeLetterWords() throws FileNotFoundException {
-		Links linksTiny = new Links("../DoubletsData/tiny.dictionary.txt");
+		Links linksTiny = new Links("tiny.dictionary.txt");
 		Set<String> fooCandidates = linksTiny.getCandidates("foo");
 		assertTrue(fooCandidates.contains("for"));
 		assertTrue(fooCandidates.contains("too"));
@@ -40,7 +40,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidatesTinyFourLetterWords() throws FileNotFoundException {
-		Links linksTiny = new Links("../DoubletsData/tiny.dictionary.txt");
+		Links linksTiny = new Links("tiny.dictionary.txt");
 		Set<String> candidates = linksTiny.getCandidates("math");
 		assertTrue(candidates.contains("path"));
 		assertTrue(candidates.contains("moth"));
@@ -55,7 +55,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidatesTinyMissingWords() throws FileNotFoundException {
-		Links linksTiny = new Links("../DoubletsData/tiny.dictionary.txt");
+		Links linksTiny = new Links("tiny.dictionary.txt");
 		Set<String> candidates = linksTiny.getCandidates("fwump");
 		assertNull(candidates);
 		candidates = linksTiny.getCandidates("bryllyg");
@@ -69,7 +69,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidatesTinyNoCandidates() throws FileNotFoundException {
-		Links linksTiny = new Links("../DoubletsData/tiny.dictionary.txt");
+		Links linksTiny = new Links("tiny.dictionary.txt");
 		Set<String> candidates = linksTiny.getCandidates("silk");
 		assertNull(candidates);
 		candidates = linksTiny.getCandidates("mouth");
@@ -83,7 +83,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidates10() throws FileNotFoundException {
-		Links links10 = new Links("../DoubletsData/english.cleaned.all.10.txt");
+		Links links10 = new Links("english.cleaned.all.10.txt");
 		Set<String> candidates = links10.getCandidates("bar");
 		assertTrue(candidates.contains("bad"));
 		assertTrue(candidates.contains("ban"));
@@ -104,7 +104,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidates20() throws FileNotFoundException {
-		Links links20 = new Links("../DoubletsData/english.cleaned.all.20.txt");
+		Links links20 = new Links("english.cleaned.all.20.txt");
 		Set<String> candidates = links20.getCandidates("row");
 		assertTrue(candidates.contains("bow"));
 		assertTrue(candidates.contains("cow"));
@@ -138,7 +138,7 @@ public class LinkTest {
 	 */
 	@Test
 	public void testGetCandidatesInvalidString() throws FileNotFoundException {
-		Links links20 = new Links("../DoubletsData/english.cleaned.all.20.txt");
+		Links links20 = new Links("english.cleaned.all.20.txt");
 		Set<String> candidates = links20.getCandidates("aaaa");
 		assertNull(candidates);
 		sPoints += 2;
@@ -147,7 +147,7 @@ public class LinkTest {
 	@Test
 	public void testGetCandidatesEfficiency() throws FileNotFoundException {		
 		// Can take a few seconds to load, no efficiency requirement for this.
-		Links links20 = new Links("../DoubletsData/english.cleaned.all.20.txt");
+		Links links20 = new Links("english.cleaned.all.20.txt");
 
 		double elapsedTime;
 		double startTime = System.currentTimeMillis();
