@@ -12,12 +12,14 @@ import org.junit.Test;
  *
  * @author Matt Boutell. Created Mar 18, 2011.
  */
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class ChainTest {
 	private static double sPoints = 0;
 
 	/**
 	 * Test method for {@link Chain#addLast(java.lang.String)}.
 	 */
+	
 	@Test
 	public void testAddLast() {
 		Chain ch = new Chain();
