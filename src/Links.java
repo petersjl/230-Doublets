@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 
-public class Links {
+public class Links implements LinksInterface{
 	
 	private HashMap<String, HashSet<String>> map;
 	
@@ -60,6 +60,12 @@ public class Links {
 			return null;
 		}
 		return this.map.get(s);
+	}
+
+	@Override
+	public boolean exists(String word) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
