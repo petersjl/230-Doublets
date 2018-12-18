@@ -1,46 +1,70 @@
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 
-public class Chain<String> implements Iterable{
-	
-	private LinkedHashSet<String> list;
-	private String last;
+
+public class Chain implements Iterable<String>{
+
+	LinkedHashSet<String>chain;
+	String chainString = "";
 	
 	public Chain(){
-		list = new LinkedHashSet<String>();
-		last = null;
+		this.chain= new LinkedHashSet<String>();
 	}
-	
-	@SuppressWarnings("unchecked")
-	public Chain(LinkedHashSet<String> hash, String s) {
-		this.list = new LinkedHashSet<String>();
-		Iterator it = hash.iterator();
-		while(it.hasNext()) {
-			list.add((String) it.next());
+	public Chain(String seed){
+		this();
+		this.chain.add(seed);
+	}
+	public Chain(LinkedHashSet<String> input){
+		this.chain=input;
+	}
+	public Chain addLast(String string) {
+		//make a new chain with new LinkedHashSet with new element
+		if(this.contains(string)){
+			return this;
 		}
-		this.list.add(s);
-		this.last = s;
+		LinkedHashSet<String> temperory = new LinkedHashSet<>();
+		for(String s: this.chain){
+			temperory.add(s);
+		}
+		temperory.add(string);
+		return new Chain(temperory);
 	}
-	
-
-	public Chain<String> addLast(String s) {
-		return new Chain<String>(this.list, s);
-	}
-	
 	public String getLast() {
-		return last;
+		//get the last string
+		Iterator iterOf = this.iterator();
+		String current = "";
+		while(iterOf.hasNext()){
+			current = iterOf.next().toString();
+		}
+		return current;
 	}
-	
+
 	public int length() {
-		return list.size();
+		return this.chain.size();
+	}
+
+	public boolean contains(String string) {
+		for (String s: this.chain){
+			if(s.equals(string)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Iterator<String> iterator() {
+		Iterator<String> iterator = this.chain.iterator();
+		return iterator;
 	}
 	
-	public boolean contains(String s) {
-		return list.contains(s);
-	}
-	
-	public Iterator iterator() {
-		return list.iterator();
+	@Override
+	public String toString(){
+		Iterator<String> iter = iterator();
+		String ret = "[";
+		while(iter.hasNext()){
+			ret += iter.next() + ", ";
+		}
+		return ret.substring(0, ret.length() - 2) + "]";
 	}
 
 }
