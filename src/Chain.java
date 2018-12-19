@@ -20,7 +20,7 @@ public class Chain implements Iterable<String>{
 	public Chain addLast(String string) {
 		//make a new chain with new LinkedHashSet with new element
 		if(this.contains(string)){
-			return this;
+			return null;
 		}
 		LinkedHashSet<String> temperory = new LinkedHashSet<>();
 		for(String s: this.chain){
